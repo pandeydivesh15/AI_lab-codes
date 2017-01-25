@@ -55,4 +55,4 @@ for x,y in zip(simple_conf_matrix,labels):
 	conf_matrix[y] = x
 conf_matrix = conf_matrix.transpose()
 print conf_matrix
-print "Classification Report: " + classification_report(test_data_labels, predicted_labels)
+print "Classification Report: \n" + classification_report(test_data_labels, predicted_labels)
