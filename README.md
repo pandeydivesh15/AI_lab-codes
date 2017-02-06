@@ -7,3 +7,6 @@ The aim of this practical is to achieve Part of Speech(POS) tagging using HunPos
 
 ##Chunking
 All the details can be seen in the sub-folder.
+
+##Hidden Markov Model and Viterbi
+The aim here is to deduce the tags, words, transition probabilities, emission probabilities, and prior probabilities using some training data and then use these to predict POS tags using Viterbi's Algorithm.
