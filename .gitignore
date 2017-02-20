@@ -1,0 +1,5 @@
+#pyc files
+*.pyc
+
+#ipython checkpoints
+.ipynb_checkpoints
