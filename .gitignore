@@ -3,3 +3,6 @@
 
 #ipython checkpoints
 .ipynb_checkpoints
+
+#stanford-parser folder
+Stanford_Parser/stanford-parser-full-2016-10-31/
