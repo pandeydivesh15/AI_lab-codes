@@ -4,7 +4,7 @@ Here I list down some commands, which may prove helpful in achieving parsing.
 
 ## Prerequisites
 
-For running these commands, first make sure that you have downloaded Stanford Parser module from [this site](http://nlp.stanford.edu/software/lex-parser.shtml).
+For running these commands, first make sure that you have downloaded Stanford Parser module from [this site](http://nlp.stanford.edu/software/lex-parser.shtml). Extract this module into this directory. 
 
 ## Running on your system
 
