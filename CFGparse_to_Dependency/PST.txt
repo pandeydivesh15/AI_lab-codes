@@ -1,0 +1,7 @@
+(ROOT
+  (S
+    (NP (DT The) (NN teacher))
+    (VP (VBD ran)
+      (PP (IN after)
+        (NP (DT the) (NN boy))))))
+
