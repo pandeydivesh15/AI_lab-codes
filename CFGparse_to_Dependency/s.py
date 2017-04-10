@@ -2,8 +2,8 @@ import re
 from copy import deepcopy
 
 HEAD_RULES = {
-	"VP": "V",
-	"NP": "N",
+	"VP": "V", # Head of VP is Verb, V (Handles all cases like VP/VB/VBZ/VBD)
+	"NP": "N", # Head of NP is Noun, N
 	"S": "VP",
 	"ROOT": "S",
 	"PP": "NP",	
@@ -16,11 +16,12 @@ KARAKA_CHART = {
 	"obj"		: "Karam (K2)",
 	"prep+to"	: "Sampradan (K4)",
 	"prep+by"	: "Apadaan (K5)",
-	"prep+in"	: "Adhikaran (K7place)",
-	"prep+at"	: "Adhikaran (K7time)"
+	"prep+in"	: "Adhikaran (K7)",
+	"prep+at"	: "Adhikaran (K7)",
 }
 
 # For storing karaka relations encountered in the sentence.
+# This will be filled by get_relations() func
 RELATIONS = {} 
 
 # def __init__(self, data, children=[], head=""):
@@ -50,7 +51,7 @@ class Treenode():
 		return str(self.data) + " (head: " + str(self.head) + ")"
 
 def read_PST(elements):
-	elements = elements[1:-1]
+	elements = elements[1:-1] # For removing ( and ) brackets for ROOT in the given sentence
 	stack = []
 	prev_x = None
 
@@ -91,6 +92,8 @@ def get_relations(PST_root):
 			RELATIONS[PST_root.head + x.head] = "subj"
 		if x.data == "VP":
 			for y in x.children:
+				if y.data == "VP":
+					get_relations(x)
 				if y.data == "NP":
 					RELATIONS[x.head + y.head] = "obj"
 				if y.data == "PP":
@@ -104,16 +107,16 @@ def traverse_tree(root):
 
 def show_simple_Dtree(root):
 	for x in root.children:
-		print root.data + " ----> " + x.data
+		print root.data + "\t---->\t" + x.data
 		show_simple_Dtree(x)
 	
 def show_Dtree(root):
 	for x in root.children:
 		try:
-			print root.data + " ----> " + x.data + \
+			print root.data + "\t---->\t" + x.data + \
 			" (Karaka Relation: %s)" % KARAKA_CHART[RELATIONS[root.data + x.data]]
 		except:
-			print root.data + " ----> " + x.data
+			print root.data + "\t---->\t" + x.data
 		show_Dtree(x)
 
 # Lets start building Dependency tree, merging common heads

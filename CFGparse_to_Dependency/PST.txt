@@ -1,7 +1,8 @@
 (ROOT
   (S
-    (NP (DT The) (NN teacher))
-    (VP (VBD ran)
-      (PP (IN after)
-        (NP (DT the) (NN boy))))))
+    (NP (NNP Ram))
+    (VP (VBD was)
+      (VP (VBG running)
+        (PP (TO to)
+          (NP (DT the) (NN jungle)))))))
 
